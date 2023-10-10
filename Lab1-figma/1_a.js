@@ -1,9 +1,16 @@
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {  StyleSheet,View, Image, Button } from 'react-native';
 
 export default function App() {
+    const navigation = useNavigation();
   return (
     <View style={styles.container} >
       <View style={styles.header}> 
+      <View style={styles.header0}>
+          <Button title='->' onPress={() => navigation.navigate('screen2')}></Button>
+        </View>
+        
         <View style={styles.header1}>
           <Image style={styles.logo} source={{ uri: "https://cdn-icons-png.flaticon.com/512/105/105152.png" }}></Image>
         </View>
