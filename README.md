@@ -1,4 +1,4 @@
-![React Native Logo](images/react-native.png)
+![React Native Logo](https://github.com/huongnguyenvan/react-native/blob/master/images/react-native.png?raw=true)
 # ReactNative
 ## Init
 ```bash
