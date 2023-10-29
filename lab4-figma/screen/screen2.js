@@ -1,82 +1,135 @@
-import React from 'react';
-
-import {Text, View, FlatList, Image} from 'react-native';
-
-const DATA =[
+import { StatusBar } from "expo-status-bar";
+import {
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
+const data = [
   {
-    id:1,
-    title:'Cap chuyen tu cong USB sang PS2',
-    url:'https://hacom.vn/media/lib/04-03-2022/daa1d5bbfa49b982db82004f6681dcda.jpg',
-    rating:15,
-    price:69000,
-    discount:39
-  },
-  {
-    id: 2,
-    title: 'Cap chuyen tu cong USB sang PS2',
-    url: 'https://hacom.vn/media/lib/04-03-2022/daa1d5bbfa49b982db82004f6681dcda.jpg',
-    rating: 1,
-    price: 91000,
-    discount: 40
-  },
-  {
-    id: 3,
-    title: 'Cap chuyen tu cong USB sang PS2',
-    url: 'https://hacom.vn/media/lib/04-03-2022/daa1d5bbfa49b982db82004f6681dcda.jpg',
+    imgUrl: require("../assets/img/giacchuyen_1.png"),
+    title: "Cáp chuyển từ Cổng USB sang PS2...",
+    price: "69.900 đ",
+    discount: 39,
     rating: 15,
-    price: 169000,
-    discount: 39
   },
   {
-    id: 4,
-    title: 'Cap chuyen tu cong USB sang PS2',
-    url: 'https://hacom.vn/media/lib/04-03-2022/daa1d5bbfa49b982db82004f6681dcda.jpg',
-    rating: 1,
-    price: 99000,
-    discount: 40
-  },
-  {
-    id: 5,
-    title: 'Cap chuyen tu cong USB sang PS2',
-    url: 'https://hacom.vn/media/lib/04-03-2022/daa1d5bbfa49b982db82004f6681dcda.jpg',
+    imgUrl: require("../assets/img/daynguon_1.png"),
+    title: "Cáp chuyển từ Cổng USB sang PS2...",
+    price: "69.900 đ",
+    discount: 39,
     rating: 15,
-    price: 119000,
-    discount: 1
   },
   {
-    id: 6,
-    title: 'Cap chuyen tu cong USB sang PS2',
-    url: 'https://hacom.vn/media/lib/04-03-2022/daa1d5bbfa49b982db82004f6681dcda.jpg',
-    rating: 1,
-    price: 99000,
-    discount: 49
+    imgUrl: require("../assets/img/dauchuyendoipsps2_1.png"),
+    title: "Cáp chuyển từ Cổng USB sang PS2...",
+    price: "69.900 đ",
+    discount: 39,
+    rating: 15,
   },
-]
+  {
+    imgUrl: require("../assets/img/dauchuyendoi_1.png"),
+    title: "Cáp chuyển từ Cổng USB sang PS2...",
+    price: "69.900 đ",
+    discount: 39,
+    rating: 15,
+  },
+  {
+    imgUrl: require("../assets/img/carbusbtops2_1.png"),
+    title: "Cáp chuyển từ Cổng USB sang PS2...",
+    price: "69.900 đ",
+    discount: 39,
+    rating: 15,
+  },
+  {
+    imgUrl: require("../assets/img/daucam_1.png"),
+    title: "Cáp chuyển từ Cổng USB sang PS2...",
+    price: "69.900 đ",
+    discount: 39,
+    rating: 15,
+  },
+];
 
-let Item = ({i})=>(
-  <View style={{padding:10, width:'50%', flex:1}}>
-    <Image style={{width: 'auto', height:120, objectFit:'contain'}} source={{ uri: i.url }}></Image>
-    <Text>{i.title}</Text>
-    <View style={{ flexDirection: 'row', flex:1, justifyContent:'center', alignItems:'center'}}>
-      <Image style={{ flex: 1, height: 30, width: 'auto', objectFit:'contain'}} source={{ uri: 'https://www.pngmart.com/files/23/Stars-PNG.png' }}></Image>
-      <Text style={{ flex: 1 }}> ({i.rating})</Text>
-    </View>
-    <View style={{flexDirection:'row'}}> 
-      <Text style={{ fontWeight: 'bold' }}>{i.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})} </Text>
-      <Text> {i.discount} %</Text>
-    </View>
-  </View>
-)
-
-export default function Screen1() {
-   return (
-      <View>
-       <FlatList 
-        data={DATA}
-        renderItem={({ item }) => <Item i={item}></Item>}
-        numColumns={2}
-        
-       />
+export default function App() {
+  return (
+    <View style={{ width: "100%", height: "100%" }}>
+      <ScrollView>
+        <FlatList
+          data={data}
+          renderItem={({ item }) => {
+            return (
+              <View style={{ padding: 10, width: "50%" }}>
+                <Image
+                  source={item.imgUrl}
+                  style={{
+                    height: 100,
+                    width: "auto",
+                    objectFit: "contain",
+                  }}
+                ></Image>
+                <View style={{ paddingLeft: "15px" }}>
+                  <Text>{item.title}</Text>
+                  <View style={{ flexDirection: "row" }}>
+                    <Icon
+                      name="star"
+                      size={18}
+                      style={{ color: "#ffd700", padding: "1px" }}
+                    ></Icon>
+                    <Icon
+                      name="star"
+                      size={18}
+                      style={{ color: "#ffd700", padding: "1px" }}
+                    ></Icon>
+                    <Icon
+                      name="star"
+                      size={18}
+                      style={{ color: "#ffd700", padding: "1px" }}
+                    ></Icon>
+                    <Icon
+                      name="star"
+                      size={18}
+                      style={{ color: "#ffd700", padding: "1px" }}
+                    ></Icon>
+                    <Icon
+                      name="star"
+                      size={18}
+                      style={{ color: "gray", padding: "1px" }}
+                    ></Icon>
+                    <Text>({item.rating})</Text>
+                  </View>
+                  <View style={{ flexDirection: "row" }}>
+                    <Text style={{ fontWeight: "bold" }}>
+                      {item.price.toLocaleString("vi", {
+                        style: "currency",
+                        currency: "VND",
+                      })}
+                      {"   "}
+                    </Text>
+                    <Text>-{item.discount}%</Text>
+                  </View>
+                </View>
+              </View>
+            );
+          }}
+          numColumns={2}
+        ></FlatList>
+      </ScrollView>
+      <View
+        style={{
+          backgroundColor: "#1BA9FF",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          paddingVertical: "12px",
+        }}
+      >
+        <Icon name="bars" size={30}></Icon>
+        <Icon name="home" size={30}></Icon>
+        <Icon name="undo" size={30}></Icon>
       </View>
+    </View>
   );
 }
