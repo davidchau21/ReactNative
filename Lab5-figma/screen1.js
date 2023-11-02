@@ -7,13 +7,14 @@ export default function Screen1() {
   let [emailIn, setEmail] = React.useState('')
   let [DATA, setData] = React.useState([])
 
-  fetch("https://653f68399e8bd3be29e07f8f.mockapi.io/api/v1/user")
+  fetch("https://6540a02c45bedb25bfc23317.mockapi.io/user")
     .then(response=>{
       if (response.ok)
         return response.json()
     })
     .then(dataO=>{
-      if(DATA.length==0)
+      // if(DATA.length==0)
+      DATA = dataO;
         setData(dataO)
     })
 
