@@ -13,7 +13,7 @@ export default function Screen2() {
       <Image style={{ left: 10, width: 20, height: 20, resizeMode: 'contain', position: 'absolute' }} source={{ uri:'https://cdn-icons-png.flaticon.com/512/5290/5290058.png'}}></Image>
       <TouchableOpacity style={{ flex: 1, position: 'absolute', right: 10, zIndex:99}}
       onPress={()=>{
-        fetch('https://6540a02c45bedb25bfc23317.mockapi.io/user' + user.id +"/searchs/"+i.id, {
+        fetch('https://6540a02c45bedb25bfc23317.mockapi.io/api/v1/user' + user.id +"/searchs/"+i.id, {
           method: 'DELETE',
         })
       }}
