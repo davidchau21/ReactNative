@@ -1,54 +1,143 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
-import React from 'react'
-import {useNavigation} from "@react-navigation/native"
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  TextInput,
+  FlatList,
+} from "react-native";
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
 export default function Screen1() {
 
-  let navigation = useNavigation()
-  let [emailIn, setEmail] = React.useState('')
-  let [DATA, setData] = React.useState([])
+  // let route = useRoute();
+  // let { donut } = route.params;
+  // let donutO = [];
+  // donutO = donut.searchs;
+  // let [valueSearch, setValueSearch] = React.useState("");
+  // let [donutIn, setDonutIn] = React.useState(donutO);
 
-  fetch("https://6540a02c45bedb25bfc23317.mockapi.io/api/v1/user")
-    .then(response=>{
-      if (response.ok)
-        return response.json()
-    })
-    .then(dataO=>{
-      if(DATA.length==0)
-        setData(dataO)
-    })
+  // const [data, setData] = useState([]);
+  
 
+
+  // React.useEffect(() => {
+  //   let temp = donutO.filter((i) => {
+  //     return i.desc.includes(valueSearch);
+  //   });
+  //   if (valueSearch != "") setUserIn(temp);
+  //   else setUserIn(userO);
+  // }, [valueSearch]);
+
+
+
+
+  // let Item = ({i}) => (
+  //   <View style={{flex:2, height:115, width:337, top:191, left:14, borderRadius:10}}>
+      
+  //   </View>
+  // );
 
   return (
     <View style={styles.container}>
-        <View style={{flex:1}}></View>
-        <Image style={{marginTop:20,flex:3,width:'100%', height:'auto', resizeMode:'contain'}} source={{uri:'https://res.cloudinary.com/mycloudd/image/upload/v1698735700/img95.png'}}></Image>
-        <View style={{flex:0.5}}></View>
-        <Text style={{fontSize:30, fontWeight:'bold', textAlign:'center', color:'#8353E2'}}>MANAGE YOUR</Text>
-        <Text style={{fontSize:30, fontWeight:'bold', textAlign:'center', color:'#8353E2'}}>TEST</Text>
-        <View style={{flex:1}}></View>
-        <View style={{flex:1, flexDirection:'row', alignItems:'center'}}>
-        <Image style={{ left: 10, width: 20, height: 20, resizeMode: 'contain', position: 'absolute' }} source={{ uri:'https://cdn-icons-png.flaticon.com/512/2099/2099100.png'}}></Image>
-          <TextInput style={{height:40, flex:1, borderRadius:5, borderWidth:1, paddingLeft:40}} placeholder='Enter your name' onChangeText={setEmail}></TextInput>
-        </View>
-        <View style={{flex:1}}></View>
-      { DATA.length == 0 &&<View style={{ flex: 0.7 }}></View>}
-      {DATA.length != 0&&
-        <TouchableOpacity style={{ flex: 0.7, justifyContent: 'center', alignItems: 'center', backgroundColor: '#00BDD6', borderRadius: 30 }}
-          onPress={
-            () => {
-
-              for (let i = 0; i < DATA.length; i++) {
-                if (DATA[i].email == emailIn) {
-                  navigation.navigate("Screen2", { user: DATA[i] })
-                }
-              }
-
-            }}
+      <View style={{ flex: 1 }}>
+        <Text
+          style={{
+            fontSize: 20,
+            color: "#000000A6",
+            fontWeight: "bold",
+            paddingTop: 5,
+          }}
         >
-          <Text style={{ color: 'white' }}>GET STARTED</Text>
+          Welcome, Jala!
+        </Text>
+        <Text style={{ fontSize: 23, fontWeight: "bold" }}>
+          Choise your Best food
+        </Text>
+      </View>
+      <View style={{ flex: 1, flexDirection: "row" }}>
+        <TextInput
+          style={{
+            width: 266,
+            height: 46,
+            top: 10,
+            borderWidth: 1,
+            position: "absolute",
+          }}
+          placeholder="Search food"
+        ></TextInput>
+
+        <Image
+          style={{
+            width: 49,
+            height: 47,
+            position: "absolute",
+            right: 10,
+            top: 10,
+            borderRadius: 10,
+            resizeMode: "contain",
+            backgroundColor: "#F1B000",
+          }}
+          source={{
+            uri:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png",
+          }}
+        ></Image>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <TouchableOpacity
+          style={{
+            width: 101,
+            height: 35,
+            backgroundColor: "#F1B000",
+            borderRadius: 5,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={{ fontSize: 14, fontWeight: "bold" }}>Donut</Text>
         </TouchableOpacity>
-        }
-      <View style={{flex:1}}></View>
+
+        <TouchableOpacity
+          style={{
+            width: 101,
+            height: 35,
+            backgroundColor: "#F1B000",
+            borderRadius: 5,
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: 15,
+          }}
+        >
+          <Text style={{ fontSize: 14, fontWeight: "bold" }}>Pink Donut</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            width: 101,
+            height: 35,
+            backgroundColor: "#F1B000",
+            borderRadius: 5,
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: 15,
+          }}
+        >
+          <Text style={{ fontSize: 14, fontWeight: "bold" }}>Floating</Text>
+        </TouchableOpacity>
+      </View>
+
+      <FlatList style={{ flex: 7 }}
+        
+      ></FlatList>
     </View>
   );
 }
@@ -56,8 +145,8 @@ export default function Screen1() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'white',
-    paddingLeft:"5%",
-    paddingRight:"5%"
+    backgroundColor: "white",
+    paddingLeft: "5%",
+    paddingRight: "5%",
   },
 });
