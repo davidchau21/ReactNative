@@ -7,32 +7,19 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-
-      <View style={{flex:1, margin:15, alignItems:"center"}}>
-      <Text style={{ alignItems:"center", justifyContent:"space-between", padding:40, fontSize:20, fontWeight:'bold'}}>Welcome to Cafe world</Text>
-        <Image 
-        source={require('../assets/hinh1.png')}
-        style={{height:70,width:200,  borderRadius:15, margin:20}}
-        ></Image>
-        
-        <Image 
+      <Text style={styles.paragraph}>Welcome to Cafe world</Text>
+      <Image source={require('../assets/hinh1.png')} style={{ margin: 50 }} />
+      <Image
         source={require('../assets/hinh2.png')}
-        style={{height:70,width:200, borderRadius:15, margin:20}}
-        ></Image>
-        <Image 
-        source={require('../assets/hinh3.jpg')}
-        style={{height:70,width:200, borderRadius:15, margin:20}}
-        ></Image>
-      </View>
-      <View style={{flex:0.2}}>
-        <TouchableOpacity style={{height:50,width:280, justifyContent: 'center', alignItems: 'center', backgroundColor: '#00BDD6', borderRadius: 5 }}
+        style={{ marginBottom: 50 }}
+      />
+      <Pressable
+        style={styles.btnGST}
         onPress={() => {
-          navigation.navigate('Screen2');
-        }} 
-        >
-            <Text>GET STARTED</Text>
-        </TouchableOpacity>
-      </View>
+          navigation.navigate('Shop near me');
+        }}>
+        <Text style={{ fontWeight: 400, color: '#FFF' }}>GET START</Text>
+      </Pressable>
     </View>
   );
 }
@@ -40,9 +27,23 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    
+    padding: 24,
+    backgroundColor: "rgba(18, 15, 40, 0.12)"
+  },
+  paragraph: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  btnGST: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 30,
+    width: 260,
+    borderRadius: '6px',
+    backgroundColor: '#00BDD6',
   },
 });

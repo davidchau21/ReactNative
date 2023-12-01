@@ -1,12 +1,25 @@
-import { StyleSheet, Text, View, Pressable, FlatList, Image } from 'react-native'
-import React from 'react'
+import { Text, View, StyleSheet, Image, Pressable, FlatList } from 'react-native';
+import {useState, useEffect} from "react"
 
-export default function App() {
-
+export default function App({ navigation,route }) {
+  var [data, setData] = useState([]);
+  useEffect(()=>{
+    fetch("https://654325f301b5e279de1ff315.mockapi.io/Shop")
+      .then((response) => response.json())
+      .then((json) => {
+        data = json;
+        setData(json);
+      });
+  }, []);
+  useEffect(() => {
+    if (route.params?.updateData) {
+      setData(route.params.updateData);
+    }
+  }, [route.params?.updateData]);
   return (
     <View style={styles.container}>
       <View style={styles.viewTitle}>
-        <Pressable onPress={()=>navigation.navigate('Screen01')}>
+        <Pressable onPress={()=>navigation.navigate('CafeScreen1')}>
           <Image
             source={require("../assets/BackIcon.png")}
             style={{width:20,height:50}}
@@ -21,7 +34,7 @@ export default function App() {
           style={{width:25,height:50}}
         />
       </View>
-      {/* <FlatList
+      <FlatList
         data={data}
         renderItem={({item})=>
         <Pressable style={styles.viewShop} onPress={()=>navigation.navigate("CafeScreen3", { item })}>
@@ -59,12 +72,11 @@ export default function App() {
           <Text style={styles.txtAdress}>{item.address}</Text>
         </Pressable>
       }
-      /> */}
+      />
       
     </View>
-  )
+  );
 }
-
 
 const styles = StyleSheet.create({
   container: {
