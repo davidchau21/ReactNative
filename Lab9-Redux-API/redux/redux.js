@@ -1,28 +1,68 @@
-let init ={}
-
-export default function Redux(state = init,action){
-    switch(action.type){
-        case "set":
-            state = action.data
-            return { ...state}
-        case "add":
-            state.todojob.push({
-                id: parseInt(state.todojob[state.todojob.length - 1].id)+1+'',
-                todo: action.news
-            })
-            return { ...state}
-        case "del":
-            state.todojob = state.todojob.filter(i => i.id!=action.id)
-            return { ...state}
-        case "edit":
-            state.todojob = state.todojob.map(i => {
-                if(i.id === action.id)
-                    i.todo = action.news
-                return i 
-            })
-
-            return { ...state}
-        default:
-            return { ...state}
+const initialState = {
+    notes: ["To check email", "Learn HTML Advance", "Medical App UI"],
+  };
+  
+  const reducer = (state = initialState, action) => {
+    switch (action.type) {
+      case 'ADD_NOTE':
+        return { ...state, notes: [...state.notes, action.note] };
+  
+      case 'DELETE_NOTE':
+        return {
+          ...state,
+          notes: state.notes.filter((item, index) => index !== action.index),
+        };
+  
+      case 'UPDATE_NOTE':
+        return {
+          ...state,
+          notes: state.notes.map((item, index) =>
+            index === action.index ? action.updatedNote : item
+          ),
+        };
+  
+      case 'FETCH_NOTES':
+        return { ...state, notes: action.notes };
+  
+      default:
+        return state;
     }
-}
+  };
+  
+  export default reducer;
+  
+  
+  
+  // const initialState = {
+  //   notes: ["To check email", "Learn HTML Advance","Medical App UI",],
+  // };
+  
+  // const reducer = (state = initialState, action) => {
+  //   switch (action.type) {
+  //     case 'ADD_NOTE':
+  //       return { ...state, notes: [...state.notes, { id: Date.now(), text: action.note }] };
+  
+  //     case 'DELETE_NOTE':
+  //       return {
+  //         ...state,
+  //         notes: state.notes.filter((item) => item.id !== action.id),
+  //       };
+  
+  //     case 'UPDATE_NOTE':
+  //       return {
+  //         ...state,
+  //         notes: state.notes.map((item) =>
+  //           item.id === action.id ? { ...item, text: action.updatedNote } : item
+  //         ),
+  //       };
+  
+  //     case 'FETCH_NOTES_SUCCESS':
+  //       return { ...state, notes: action.notes };
+  
+  //     default:
+  //       return state;
+  //   }
+  // };
+  
+  // export default reducer;
+  

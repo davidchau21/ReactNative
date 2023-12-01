@@ -1,26 +1,19 @@
-import { StyleSheet, View } from 'react-native';
-import { Provider} from 'react-redux'
-import { Store } from './redux/store';
-import Component_View from './component_View';
-import Component_Set from './component_Set';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import UpdateNote from './screen/UpdateNote';
+import HomeScreen from './screen/NoteList';
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
-     
   return (
-    <Provider store={Store}>
-      <View style={styles.container}>
-        <Component_Set></Component_Set>
-        <Component_View />
-      </View>
-    </Provider>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="UpdateNote" component={UpdateNote} />
+      </Stack.Navigator>  
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
