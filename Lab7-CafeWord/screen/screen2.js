@@ -19,7 +19,7 @@ export default function App({ navigation,route }) {
   return (
     <View style={styles.container}>
       <View style={styles.viewTitle}>
-        <Pressable onPress={()=>navigation.navigate('CafeScreen1')}>
+        <Pressable onPress={()=>navigation.navigate('Screen1')}>
           <Image
             source={require("../assets/BackIcon.png")}
             style={{width:20,height:50}}

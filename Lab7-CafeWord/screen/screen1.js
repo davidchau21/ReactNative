@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 
 
@@ -8,15 +8,19 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.paragraph}>Welcome to Cafe world</Text>
-      <Image source={require('../assets/hinh1.png')} style={{ margin: 50 }} />
+      <Image source={require('../assets/hinh1.png')} style={{ margin: 50, height:80,width:250, borderRadius:10 }} />
       <Image
         source={require('../assets/hinh2.png')}
-        style={{ marginBottom: 50 }}
+        style={{ marginBottom: 50, height:80,width:250, borderRadius:10 }}
+      />
+      <Image
+        source={require('../assets/hinh3.jpg')}
+        style={{ marginBottom: 50, height:80,width:250, borderRadius:10 }}
       />
       <Pressable
         style={styles.btnGST}
         onPress={() => {
-          navigation.navigate('Shop near me');
+          navigation.navigate('Screen2');
         }}>
         <Text style={{ fontWeight: 400, color: '#FFF' }}>GET START</Text>
       </Pressable>
