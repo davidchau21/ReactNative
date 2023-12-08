@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "Đi học nhé",
+    "priority": "high",
+    "type": "long-term"
+  },
+  {
+    "id": "2",
+    "title": "Dự buổi họp công việc",
+    "priority": "low",
+    "type": "short-term"
+  },
+  {
+    "id": "3",
+    "title": "Đi tập thể dục",
+    "priority": "low",
+    "type": "long-term"
+  },
+  {
+    "id": "4",
+    "title": "Chuẩn bị CV và bài giới thiệu bản thân",
+    "priority": "high",
+    "type": "done"
+  }
+]

@@ -1,0 +1,77 @@
+[
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "userName": "John",
+      "passWord": "123",
+      "notes": [
+        {
+          "id": "1",
+          "title": "Đi ăn trưa với bạn bè",
+          "priority": "low",
+          "type": "short-term"
+        },
+        {
+          "id": "2",
+          "title": "Đi học",
+          "priority": "high",
+          "type": "long-term"
+        },
+        {
+          "id": "5",
+          "title": "Chuẩn bị CV và bài giới thiệu bản thân",
+          "priority": "high",
+          "type": "done"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "firstName": "Tran",
+      "lastName": "Huy",
+      "userName": "huy",
+      "passWord": "123",
+      "notes": [
+        {
+          "id": "3",
+          "title": "Dự buổi họp công việc",
+          "priority": "low",
+          "type": "short-term"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "firstName": "Thuy",
+      "lastName": "Vien",
+      "userName": "Vien",
+      "passWord": "123",
+      "notes": [
+        {
+          "id": "1",
+          "title": "Đi học",
+          "priority": "high",
+          "type": "long-term"
+        },
+        {
+          "id": "2",
+          "title": "Dự buổi họp công việc",
+          "priority": "low",
+          "type": "short-term"
+        },
+        {
+          "id": "3",
+          "title": "Đi tập thể dục",
+          "priority": "low",
+          "type": "long-term"
+        },
+        {
+          "id": "4",
+          "title": "Viết bài blog",
+          "priority": "low",
+          "type": "short-term"
+        }
+      ]
+    }
+  ]
